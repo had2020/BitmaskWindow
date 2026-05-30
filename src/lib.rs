@@ -13,9 +13,15 @@ macro_rules! bitslice {
 #[cfg(test)]
 mod tests {
     #[test]
-    fn it_works() {
+    fn hole_in_middle() {
         let test_value: u8 = 0b1011_0111;
         let result: u8 = !bitslice!(4_u8, 2_u8, 0_u8, test_value);
         assert_eq!(result, 0b0000_0100);
+    }
+    #[test]
+    fn hole_at_start() {
+        let test_value: u8 = 0b1011_0101;
+        let result: u8 = !bitslice!(4_u8, 0_u8, 0_u8, test_value);
+        assert_eq!(result, 0b0000_0101);
     }
 }
