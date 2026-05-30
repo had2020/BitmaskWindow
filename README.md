@@ -2,6 +2,8 @@
 
 A Low-overhead, data-oriented bitmask generator that isolates arbitrary data windows using compile-time bitwise AND masks.
 
+https://crates.io/crates/BitmaskWindow
+
 A ultra-minimal, `no_std` Rust macro designed to save development time and eliminate the mental friction of manual bit-masking, all while guaranteeing low runtime overhead, on all integers. By evaluating mask boundaries strictly at compile time, `bitslice!` forces `rustc` to collapse the entire operation into a minimal set of hardware instructions. This prevents data dependencies that stall Out-of-Order (OoO) execution pipelines, keeps the L1 Instruction Cache footprint virtually at zero, and completely bypasses the data cache by operating entirely within CPU registers.
 
 ```rust
